@@ -1,3 +1,7 @@
 class Time:
     def __init__(self, second) -> None:
-        self.second = second
+        self._second = second
+
+    @property
+    def second(self):
+        return self._second

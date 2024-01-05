@@ -9,10 +9,10 @@ class Chempionship:
         self.gp_list:list[GP] = []
 
     def set_time(self, gp:GP, driver:Haydovchi, time:Time):
-        haydovchi = driver.set_time(time)
+        driver.set_time(time)
         for inner_gp in self.gp_list:
             if inner_gp == gp:
-                inner_gp.add_driver(haydovchi)
+                inner_gp.add_driver(driver)
                 return time
         return None
         
