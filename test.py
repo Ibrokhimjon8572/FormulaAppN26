@@ -43,3 +43,21 @@
 # .
 # .
 # .
+
+class Odam:
+    def __init__(self, name, age) -> None:
+        self.name = name
+        self.age = age
+
+    def __eq__(self, __value: object) -> bool:
+        return self.name == __value.name and self.age == __value.age
+
+ali = Odam("Ali", 20)
+ali2 = Odam("Ali", 20)
+
+print(id(ali), id(ali2))
+
+if ali == ali2:
+    print("ikkisi ham bir odam")
+else:
+    print("bir odam emas bular")

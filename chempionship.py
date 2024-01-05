@@ -1,5 +1,6 @@
 from haydovchi import Haydovchi
 from gp import GP
+from time_gp import Time
 
 
 class Chempionship:
@@ -7,6 +8,14 @@ class Chempionship:
         self.driver_list:list[Haydovchi] = []
         self.gp_list:list[GP] = []
 
+    def set_time(self, gp:GP, driver:Haydovchi, time:Time):
+        haydovchi = driver.set_time(time)
+        for inner_gp in self.gp_list:
+            if inner_gp == gp:
+                inner_gp.add_driver(haydovchi)
+                return time
+        return None
+        
     def create_gp(self, gp_name):
         gp = GP(gp_name)
         self.gp_list.append(gp)
